@@ -32,12 +32,12 @@ const Navbar = () => {
   return (
     <NavigationMenu
       viewport={false}
-      className="w-full max-w-none flex items-center justify-between"
+      className="w-full max-w-none flex items-center justify-between p-2 gap-x-5 mb-12  z-20"
     >
       <div className="w-52 shrink-0">
         <Logo />
       </div>
-      <NavigationMenuList className="flex-1 justify-center">
+      <NavigationMenuList className="flex-1 justify-center gap-x-3">
         <NavigationMenuItem>
           <NavigationMenuTrigger className={navItemClass}>
             {NAVBAR_LABELS.solutions}
@@ -73,7 +73,7 @@ const Navbar = () => {
         </NavigationMenuItem>
       </NavigationMenuList>
       <div className="w-52 shrink-0 flex items-center justify-end gap-4">
-        <p className="cursor-pointer text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900">
+        <p className="cursor-pointer text-sm font-light text-neutral-700 transition-colors hover:text-neutral-900">
           {NAVBAR_LABELS.signIn}
         </p>
         <button className="group inline-flex items-center gap-2 rounded-full bg-[#2D4118] px-6 py-3 text-sm font-semibold text-[#F5F9E8] shadow-[0_8px_20px_rgba(45,65,24,0.28)] ring-1 ring-[#3C5322] transition-all duration-200 hover:bg-[#344B1C] hover:shadow-[0_10px_24px_rgba(45,65,24,0.36)] active:translate-y-px">
