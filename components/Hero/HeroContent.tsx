@@ -1,5 +1,6 @@
 import { AvatarBlock } from "./Avatar";
 import DownloadIOSButton from "./DownloadIOSButton";
+import MobileIllustration from "./MobileIllustration";
 
 const HeroContent = () => {
   return (
@@ -18,6 +19,9 @@ const HeroContent = () => {
         </p>
         <div className="mt-10">
           <DownloadIOSButton />
+        </div>
+        <div className="mt-10 w-full">
+          <MobileIllustration />
         </div>
       </div>
     </section>

@@ -14,8 +14,8 @@ const NavBarMob = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="lg:hidden relative w-full border-b border-neutral-200 bg-[#F8F9F3]/95 backdrop-blur-md">
-      <div className="flex items-center justify-between px-4 py-3">
+    <div className="relative z-50 lg:hidden w-full border-b border-neutral-200 bg-[#F8F9F3]/95 backdrop-blur-md">
+      <div className="relative z-50 flex items-center justify-between px-4 py-3">
         <Logo />
 
         <button
@@ -34,7 +34,7 @@ const NavBarMob = () => {
       </div>
 
       <div
-        className={`overflow-hidden border-t border-neutral-200 bg-white transition-all duration-300 ease-out ${
+        className={`relative z-50 overflow-hidden border-t border-neutral-200 bg-white transition-all duration-300 ease-out ${
           isMenuOpen
             ? "max-h-[calc(100vh-72px)] opacity-100"
             : "max-h-0 opacity-0"
