@@ -1,6 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import Logo from "./Logo";
 import {
   NavigationMenu,
@@ -90,7 +96,8 @@ const Navbar = () => {
 
     const triggerRect = activeTrigger.getBoundingClientRect();
     const navRect = navElement.getBoundingClientRect();
-    const targetCenter = triggerRect.left - navRect.left + triggerRect.width / 2;
+    const targetCenter =
+      triggerRect.left - navRect.left + triggerRect.width / 2;
     setPosition(clampViewportPosition(targetCenter));
   }, [activeDropdown, clampViewportPosition]);
 
@@ -107,10 +114,7 @@ const Navbar = () => {
 
       setViewportWidth(
         desiredWidth
-          ? Math.min(
-              availableWidth - VIEWPORT_EDGE_PADDING * 2,
-              desiredWidth,
-            )
+          ? Math.min(availableWidth - VIEWPORT_EDGE_PADDING * 2, desiredWidth)
           : 0,
       );
     };
