@@ -3,18 +3,27 @@
 import { useEffect, useState } from "react";
 import { PRODUCT_ILLUSTRATION_ITEMS } from "@/lib/contanst";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { easeInOut, motion } from "motion/react";
 
 const MobileIllustration = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showProductCard, setShowProductCard] = useState(true);
+  const [changeProductCard, setChangeProductCard] = useState(false);
 
   useEffect(() => {
     const totalItems = PRODUCT_ILLUSTRATION_ITEMS.length;
 
     const interval = setInterval(() => {
+      setShowProductCard(false);
+      setChangeProductCard(false);
       if (totalItems === 0) {
         return;
       }
+
+      setTimeout(() => {
+        setShowProductCard(true);
+        setChangeProductCard(true);
+      }, 1000);
 
       setCurrentIndex((prev) => (prev + 1) % totalItems);
     }, 3000);
@@ -44,7 +53,7 @@ const MobileIllustration = () => {
         {/* notch */}
         <div className="absolute left-1/2 top-3 h-5 w-20 -translate-x-1/2 rounded-full bg-black" />
 
-        <div className="absolute inset-x-0 top-10 h-38">
+        <div className="absolute inset-x-0 top-10 h-38 z-10">
           {PRODUCT_ILLUSTRATION_ITEMS.map((item, index) => {
             const relative = getRelativePosition(index);
             const absRelative = Math.abs(relative);
@@ -83,6 +92,32 @@ const MobileIllustration = () => {
             );
           })}
         </div>
+        <motion.div
+          className=" absolute h-full w-full top-35 z-20"
+          animate={{
+            top: showProductCard ? "20%" : "100%",
+            transition: {
+              duration: 0.5,
+              ease: easeInOut,
+            },
+          }}
+        >
+          <Image
+            src={
+              changeProductCard
+                ? PRODUCT_ILLUSTRATION_ITEMS[currentIndex]
+                    .product_details_img_src
+                : PRODUCT_ILLUSTRATION_ITEMS[
+                    currentIndex - 1 >= 0 ? currentIndex - 1 : 0
+                  ].product_details_img_src
+            }
+            alt="Product Details"
+            width={400}
+            height={300}
+            className="h-auto w-full object-cover"
+            loading="eager"
+          />
+        </motion.div>
       </div>
     </div>
   );
