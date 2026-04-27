@@ -99,3 +99,66 @@ export const FOOD_ITEMS = [
     icon: "/NavBar/Food/baby-and-infant-food.webp",
   },
 ];
+
+export const PRODUCT_ILLUSTRATION_ITEMS = [
+  {
+    id: 1,
+    product_img_src: "/MobileIllustration/ProductImage/product-1.webp",
+    product_details_img_src:
+      "/MobileIllustration/ProductCard/product-1-details.webp",
+  },
+  {
+    id: 2,
+    product_img_src: "/MobileIllustration/ProductImage/product-2.webp",
+    product_details_img_src:
+      "/MobileIllustration/ProductCard/product-2-details.webp",
+  },
+  {
+    id: 3,
+    product_img_src: "/MobileIllustration/ProductImage/product-3.webp",
+    product_details_img_src:
+      "/MobileIllustration/ProductCard/product-3-details.webp",
+  },
+  {
+    id: 4,
+    product_img_src: "/MobileIllustration/ProductImage/product-4.webp",
+    product_details_img_src:
+      "/MobileIllustration/ProductCard/product-4-details.webp",
+  },
+  {
+    id: 5,
+    product_img_src: "/MobileIllustration/ProductImage/product-5.webp",
+    product_details_img_src:
+      "/MobileIllustration/ProductCard/product-5-details.webp",
+  },
+  {
+    id: 6,
+    product_img_src: "/MobileIllustration/ProductImage/product-6.webp",
+    product_details_img_src:
+      "/MobileIllustration/ProductCard/product-6-details.webp",
+  },
+  {
+    id: 7,
+    product_img_src: "/MobileIllustration/ProductImage/product-7.webp",
+    product_details_img_src:
+      "/MobileIllustration/ProductCard/product-7-details.webp",
+  },
+  {
+    id: 8,
+    product_img_src: "/MobileIllustration/ProductImage/product-8.webp",
+    product_details_img_src:
+      "/MobileIllustration/ProductCard/product-8-details.webp",
+  },
+  {
+    id: 9,
+    product_img_src: "/MobileIllustration/ProductImage/product-9.webp",
+    product_details_img_src:
+      "/MobileIllustration/ProductCard/product-9-details.webp",
+  },
+  {
+    id: 10,
+    product_img_src: "/MobileIllustration/ProductImage/product-10.webp",
+    product_details_img_src:
+      "/MobileIllustration/ProductCard/product-10-details.webp",
+  },
+];

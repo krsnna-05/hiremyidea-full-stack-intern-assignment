@@ -25,6 +25,7 @@ import Food from "./Navbar/Food";
 const navItemClass =
   "relative whitespace-nowrap text-[13px] xl:text-sm text-neutral-700 px-2 lg:px-3 xl:px-4 py-2 rounded-lg cursor-pointer transition-colors hover:bg-black/3 hover:opacity-[0.9] font-normal";
 type DropdownValue = "solutions" | "blogs" | "food";
+type ActiveDropdown = DropdownValue | "";
 const VIEWPORT_EDGE_PADDING = 12;
 const VIEWPORT_WIDTHS: Record<DropdownValue, number> = {
   solutions: 960,
@@ -37,9 +38,7 @@ const Navbar = () => {
 
   const [position, setPosition] = useState(0);
   const [viewportWidth, setViewportWidth] = useState(0);
-  const [activeDropdown, setActiveDropdown] = useState<string | undefined>(
-    undefined,
-  );
+  const [activeDropdown, setActiveDropdown] = useState<ActiveDropdown>("");
 
   const clampViewportPosition = useCallback((nextCenter: number) => {
     const navElement = navRef.current;
@@ -97,8 +96,7 @@ const Navbar = () => {
 
     const syncViewportWidth = () => {
       const availableWidth = navElement.getBoundingClientRect().width;
-      const activeKey = activeDropdown as DropdownValue | undefined;
-      const desiredWidth = activeKey ? VIEWPORT_WIDTHS[activeKey] : 0;
+      const desiredWidth = activeDropdown ? VIEWPORT_WIDTHS[activeDropdown] : 0;
 
       setViewportWidth(
         desiredWidth
@@ -132,7 +130,7 @@ const Navbar = () => {
   };
 
   const closeDropdown = () => {
-    setActiveDropdown(undefined);
+    setActiveDropdown("");
   };
 
   useLayoutEffect(() => {
@@ -176,7 +174,7 @@ const Navbar = () => {
         renderViewport={false}
         value={activeDropdown}
         onValueChange={(value) => {
-          setActiveDropdown(value || undefined);
+          setActiveDropdown((value as ActiveDropdown) || "");
         }}
         className="z-20 grid w-full max-w-none min-w-0 grid-cols-[1fr_auto_1fr] items-center p-2 gap-x-3 xl:gap-x-5"
       >

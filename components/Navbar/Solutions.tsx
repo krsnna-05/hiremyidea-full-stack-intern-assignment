@@ -84,13 +84,12 @@ const Solutions = ({ mobile = false }: SolutionsProps) => {
           </div>
         ))}
       </div>
-      <div className="h-54 w-48 shrink-0 overflow-hidden rounded-lg relative">
+      <div className="relative h-54 w-48 shrink-0 overflow-hidden rounded-lg">
         <Image
-          className="h-full w-full object-cover"
+          className="object-cover"
           src={SOLUTIONS_FEATURED_CARD.image}
           alt={SOLUTIONS_FEATURED_CARD.imageAlt}
-          width={216}
-          height={216}
+          fill
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/30 to-transparent" />
         <div className="absolute inset-0 flex items-end p-3">
