@@ -63,8 +63,8 @@ const Solutions = ({ mobile = false }: SolutionsProps) => {
   }
 
   return (
-    <NavigationMenuContent className="flex items-center">
-      <div className="grid min-w-150 grid-cols-2 gap-4 p-1">
+    <div className="flex items-center">
+      <div className="grid w-xl grid-cols-2 gap-4 p-1">
         {SolutionsItems.map((item) => (
           <div key={item.id} className={solutionCardClass}>
             <div className="w-12 h-12 shrink-0 flex items-center justify-center">
@@ -75,16 +75,18 @@ const Solutions = ({ mobile = false }: SolutionsProps) => {
                 height={40}
               />
             </div>
-            <div className="flex-1">
-              <h3 className="text-sm text-neutral-900">{item.title}</h3>
-              <p className="text-xs text-neutral-600 font-light mt-1">
+            <div className="flex-1 min-w-0">
+              <h3 className="text-sm text-neutral-900 wrap-break-word">
+                {item.title}
+              </h3>
+              <p className="text-xs text-neutral-600 font-light mt-1 wrap-break-word">
                 {item.description}
               </p>
             </div>
           </div>
         ))}
       </div>
-      <div className="relative h-54 w-48 shrink-0 overflow-hidden rounded-lg">
+      <div className="relative h-44 w-40 shrink-0 overflow-hidden rounded-lg">
         <Image
           className="object-cover"
           src={SOLUTIONS_FEATURED_CARD.image}
@@ -103,7 +105,7 @@ const Solutions = ({ mobile = false }: SolutionsProps) => {
           </div>
         </div>
       </div>
-    </NavigationMenuContent>
+    </div>
   );
 };
 

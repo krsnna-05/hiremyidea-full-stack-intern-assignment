@@ -41,16 +41,16 @@ const Blogs = ({ mobile = false }: BlogsProps) => {
   }
 
   return (
-    <NavigationMenuContent className="p-2">
-      <div className="grid grid-cols-2 gap-8 min-w-150">
+    <div className="p-2">
+      <div className="grid grid-cols-2 gap-8 min-w-120">
         {BLOG_ITEMS.map((blog) => (
           <article key={blog.id} className={blogCardClass}>
             <Image
               src={blog.image}
               alt={blog.imageAlt}
-              width={128}
-              height={128}
-              className="h-32 w-32 min-h-32 min-w-32 max-h-32 max-w-none flex-none rounded-2xl object-cover"
+              width={96}
+              height={96}
+              className="h-24 w-24 min-h-24 min-w-24 max-h-24 max-w-none flex-none rounded-2xl object-cover"
               loading="lazy"
               decoding="async"
             />
@@ -65,7 +65,7 @@ const Blogs = ({ mobile = false }: BlogsProps) => {
           </article>
         ))}
       </div>
-    </NavigationMenuContent>
+    </div>
   );
 };
 

@@ -32,7 +32,7 @@ const Food = ({ mobile = false }: FoodProps) => {
   }
 
   return (
-    <NavigationMenuContent className="min-w-120 p-3">
+    <div className="min-w-96 p-3">
       <div className="grid grid-cols-2 gap-x-4 gap-y-2">
         {FOOD_ITEMS.map((item) => (
           <div key={item.id} className={foodItemClass}>
@@ -49,7 +49,7 @@ const Food = ({ mobile = false }: FoodProps) => {
           </div>
         ))}
       </div>
-    </NavigationMenuContent>
+    </div>
   );
 };
 

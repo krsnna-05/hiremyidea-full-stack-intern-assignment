@@ -1,14 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PRODUCT_ILLUSTRATION_ITEMS } from "@/lib/contanst";
 import Image from "next/image";
 import { easeInOut, motion } from "motion/react";
 
 const MobileIllustration = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(5);
   const [showProductCard, setShowProductCard] = useState(true);
   const [changeProductCard, setChangeProductCard] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const totalItems = PRODUCT_ILLUSTRATION_ITEMS.length;
@@ -20,7 +21,11 @@ const MobileIllustration = () => {
         return;
       }
 
-      setTimeout(() => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      timeoutRef.current = setTimeout(() => {
         setShowProductCard(true);
         setChangeProductCard(true);
       }, 1000);
@@ -28,7 +33,13 @@ const MobileIllustration = () => {
       setCurrentIndex((prev) => (prev + 1) % totalItems);
     }, 3000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, []);
 
   const totalItems = PRODUCT_ILLUSTRATION_ITEMS.length;
